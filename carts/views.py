@@ -49,11 +49,14 @@ def cart(request,total = 0, quantity= 0, cart_item = None):
                 quantity += cart_item.quantity
             
             tax = (2 *100)/100
+            grand_total = total + tax
 
         
             context = {
             'total' : total,
             'quantity':quantity,
             'cart_items' : cart_items,
+            'tax': tax,
+            'grand_total' : grand_total
         }
             return render(request,'store/cart.html', context)
